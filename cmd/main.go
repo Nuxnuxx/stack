@@ -1,8 +1,8 @@
 package main
 
 import (
+	"fmt"
 	"stack/db"
-	"stack/handler"
 
 	"github.com/gorilla/sessions"
 	"github.com/labstack/echo-contrib/session"
@@ -36,9 +36,7 @@ func main() {
 		e.Logger.Fatal("failed to create store", err)
 	}
 
-	helloHandler := handler.HelloHandler{}
-
-	e.GET("/", helloHandler.Show)
+	fmt.Println(store)
 
 	e.Logger.Fatal(e.Start(":8080"))
 }
